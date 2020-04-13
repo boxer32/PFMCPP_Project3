@@ -107,13 +107,13 @@ struct CarWash //2)
 
 
 /*
-1) EngingControl
+1) Enging
 5 properties:
-    1)
-    2)
-    3)
-    4)
-    5)
+    1) regulator
+    2) generator
+    3) temperature
+    4) transmittion
+    5) power
 3 things it can do:
     1)
     2)
@@ -121,13 +121,13 @@ struct CarWash //2)
  */
 
 /*
-2) LocationSystem
+2) Location
 5 properties:
-    1)
-    2)
-    3)
-    4)
-    5)
+    1) gps module
+    2) barometer
+    3) accelerometer
+    4) gyroscope
+    5) cellular module
 3 things it can do:
     1)
     2)
@@ -135,13 +135,13 @@ struct CarWash //2)
  */
 
 /*
-3) EntertainmentSystem
+3) Operating system
 5 properties:
-    1)
-    2)
-    3)
-    4)
-    5)
+    1) music player
+    2) file browser
+    3) contact list
+    4) ebook reader
+    5) fuel capacity
 3 things it can do:
     1)
     2)
@@ -149,13 +149,13 @@ struct CarWash //2)
  */
 
 /*
-4) HumanInterface
+4) Human interface
 5 properties:
-    1)
-    2)
-    3)
-    4)
-    5)
+    1) voice control
+    2) algoho detector
+    3) heart rate
+    4) EGG sensor
+    5) camera (for face detection)
 3 things it can do:
     1)
     2)
@@ -163,15 +163,15 @@ struct CarWash //2)
  */
 
 /*
-5) VisionSystem
+5) Vision 
 5 properties:
-    1)
-    2)
-    3)
-    4)
-    5)
+    1) infared sensor
+    2) nearfield sensor
+    3) rain sensor
+    4) back camera
+    5) font camera
 3 things it can do:
-    1)
+    1) 
     2)
     3)
  */
@@ -179,11 +179,11 @@ struct CarWash //2)
 /*
 6) Battery
 5 properties:
-    1)
-    2)
-    3)
-    4)
-    5)
+    1) power capacity
+    2) tempareture
+    3) charge status
+    4) charge circle
+    5) Battery loss
 3 things it can do:
     1)
     2)
@@ -191,13 +191,13 @@ struct CarWash //2)
  */
 
 /*
-7) Fuel
+7) Absorber
 5 properties:
-    1)
-    2)
-    3)
-    4)
-    5)
+    1) offRoadMode
+    2) coil spring tension
+    3) lower control ratio
+    4) auto clean 
+    5) lower microphone
 3 things it can do:
     1)
     2)
@@ -205,13 +205,13 @@ struct CarWash //2)
  */
 
 /*
-8) Emergency
+8) Light
 5 properties:
-    1)
-    2)
-    3)
-    4)
-    5)
+    1) toggle switch
+    2) dimmer
+    3) pulse control
+    4) light time
+    5) usage time
 3 things it can do:
     1)
     2)
@@ -219,13 +219,13 @@ struct CarWash //2)
  */
 
 /*
-9) antiTheft
+9) Anti Theft
 5 properties:
-    1)
-    2)
-    3)
-    4)
-    5)
+    1) alarm
+    2) vibration sensor
+    3) door lock
+    4) simcard 
+    5) fingerprint sensor
 3 things it can do:
     1)
     2)
@@ -238,14 +238,14 @@ struct CarWash //2)
  These 5 properties should be UDTs that you defined above.
  this goes along with the instruction:
     One of your 10 UDTs should only use UDTs for its member variable types.
-    1) EngingControl
-    2) LocationSystem
-    3) EntertainmentSystem
-    4) HumanInterface
-    5) VisionSystem
+    1) Enging
+    2) Location
+    3) Operating system
+    4) Human interface
+    5) Vision 
 3 things it can do:
     1) CheckLocation 
-    2) StartEngine
+    2) Auto lock 
     3) DisplayStatus
  */
 
