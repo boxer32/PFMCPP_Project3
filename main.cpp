@@ -107,7 +107,7 @@ struct CarWash //2)
 
 
 /*
-1)
+1) EngingControl
 5 properties:
     1)
     2)
@@ -121,7 +121,7 @@ struct CarWash //2)
  */
 
 /*
-2)
+2) LocationSystem
 5 properties:
     1)
     2)
@@ -135,7 +135,7 @@ struct CarWash //2)
  */
 
 /*
-3)
+3) EntertainmentSystem
 5 properties:
     1)
     2)
@@ -149,7 +149,7 @@ struct CarWash //2)
  */
 
 /*
-4)
+4) HumanInterface
 5 properties:
     1)
     2)
@@ -163,7 +163,7 @@ struct CarWash //2)
  */
 
 /*
-5)
+5) VisionSystem
 5 properties:
     1)
     2)
@@ -177,7 +177,7 @@ struct CarWash //2)
  */
 
 /*
-6)
+6) Battery
 5 properties:
     1)
     2)
@@ -191,7 +191,7 @@ struct CarWash //2)
  */
 
 /*
-7)
+7) Fuel
 5 properties:
     1)
     2)
@@ -205,7 +205,7 @@ struct CarWash //2)
  */
 
 /*
-8)
+8) Emergency
 5 properties:
     1)
     2)
@@ -219,7 +219,7 @@ struct CarWash //2)
  */
 
 /*
-9)
+9) antiTheft
 5 properties:
     1)
     2)
@@ -233,20 +233,20 @@ struct CarWash //2)
  */
 
 /*
-10)
+10) Autonomous car
 5 properties:
  These 5 properties should be UDTs that you defined above.
  this goes along with the instruction:
     One of your 10 UDTs should only use UDTs for its member variable types.
-    1)
-    2)
-    3)
-    4)
-    5)
+    1) EngingControl
+    2) LocationSystem
+    3) EntertainmentSystem
+    4) HumanInterface
+    5) VisionSystem
 3 things it can do:
-    1)
-    2)
-    3)
+    1) CheckLocation 
+    2) StartEngine
+    3) DisplayStatus
  */
 
 #include <iostream>
