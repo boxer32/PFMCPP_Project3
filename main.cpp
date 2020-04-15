@@ -113,11 +113,11 @@ struct CarWash //2)
     2) generator
     3) temperature
     4) transmittion
-    5) power
+    5) switch
 3 things it can do:
-    1)
-    2)
-    3)
+    1) regulator output
+    2) temperature check
+    3) switch power on
  */
 
 /*
@@ -129,9 +129,9 @@ struct CarWash //2)
     4) gyroscope
     5) cellular module
 3 things it can do:
-    1)
-    2)
-    3)
+    1) latitude
+    2) direction 
+    3) tilt detection 
  */
 
 /*
@@ -143,9 +143,9 @@ struct CarWash //2)
     4) ebook reader
     5) fuel capacity
 3 things it can do:
-    1)
-    2)
-    3)
+    1) search plalist
+    2) open document
+    3) diplay fuel
  */
 
 /*
@@ -157,9 +157,9 @@ struct CarWash //2)
     4) EGG sensor
     5) camera (for face detection)
 3 things it can do:
-    1)
-    2)
-    3)
+    1) read heartrate
+    2) face scanner
+    3) detect voice 
  */
 
 /*
@@ -171,9 +171,9 @@ struct CarWash //2)
     4) back camera
     5) font camera
 3 things it can do:
-    1) 
-    2)
-    3)
+    1) switch to night vision mode 
+    2) switch rain mode 
+    3) near car alert
  */
 
 /*
@@ -185,9 +185,9 @@ struct CarWash //2)
     4) charge circle
     5) Battery loss
 3 things it can do:
-    1)
-    2)
-    3)
+    1) power check
+    2) recharge battery
+    3) display batterry circle
  */
 
 /*
@@ -199,9 +199,9 @@ struct CarWash //2)
     4) auto clean 
     5) lower microphone
 3 things it can do:
-    1)
-    2)
-    3)
+    1) change coil tension
+    2) change lower control ratio
+    3) record audio
  */
 
 /*
@@ -213,9 +213,9 @@ struct CarWash //2)
     4) light time
     5) usage time
 3 things it can do:
-    1)
-    2)
-    3)
+    1) switch on
+    2) change dimmer
+    3) alert light usage time
  */
 
 /*
@@ -227,9 +227,9 @@ struct CarWash //2)
     4) simcard 
     5) fingerprint sensor
 3 things it can do:
-    1)
-    2)
-    3)
+    1) vibration threshold
+    2) auto lock
+    3) read fingerprint
  */
 
 /*
@@ -245,7 +245,7 @@ struct CarWash //2)
     5) Vision 
 3 things it can do:
     1) CheckLocation 
-    2) Auto lock 
+    2) Eye scanner
     3) DisplayStatus
  */
 
