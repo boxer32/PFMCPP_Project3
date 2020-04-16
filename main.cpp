@@ -10,7 +10,7 @@ Video:  Chapter 2 Part 5
  1) write 10 user-defined types in plain-English, 
     in the comments above your UDT, write out, in plain-english, 3 things it can do, and 5 traits.
     Note: Your 10th UDT will use 5 of your UDTs for its properties, so maybe start on UDT #10 first. This goes along with instruction #6.
-************************
+**********************
     Commit after you complete this step so i can review before you proceed with the rest of the projects
     Ping me in Slack to review this step.
     Wait for me to review before proceeding with step 2.
@@ -141,11 +141,11 @@ struct CarWash //2)
     2) file browser
     3) contact list
     4) ebook reader
-    5) fuel capacity
+    5) tetris game
 3 things it can do:
-    1) search plalist
+    1) search playlist
     2) open document
-    3) diplay fuel
+    3) open tetris game
  */
 
 /*
@@ -163,7 +163,7 @@ struct CarWash //2)
  */
 
 /*
-5) Vision 
+5) Sensor Array 
 5 properties:
     1) infared sensor
     2) nearfield sensor
@@ -191,21 +191,21 @@ struct CarWash //2)
  */
 
 /*
-7) Absorber
+7) Shock Absorber
 5 properties:
     1) offRoadMode
     2) coil spring tension
     3) lower control ratio
-    4) auto clean 
-    5) lower microphone
+    4) gas valve 
+    5) Shock mount rail
 3 things it can do:
     1) change coil tension
     2) change lower control ratio
-    3) record audio
+    3) change gas pressure
  */
 
 /*
-8) Light
+8) Smart Light Switch
 5 properties:
     1) toggle switch
     2) dimmer
@@ -219,17 +219,17 @@ struct CarWash //2)
  */
 
 /*
-9) Anti Theft
+9)  Anti-Theft Device
 5 properties:
     1) alarm
     2) vibration sensor
     3) door lock
-    4) simcard 
+    4) keypad 
     5) fingerprint sensor
 3 things it can do:
-    1) vibration threshold
+    1) detect vibration 
     2) auto lock
-    3) read fingerprint
+    3) reset keypad 
  */
 
 /*
@@ -245,7 +245,7 @@ struct CarWash //2)
     5) Vision 
 3 things it can do:
     1) CheckLocation 
-    2) Eye scanner
+    2) open voice detection
     3) DisplayStatus
  */
 
