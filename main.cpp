@@ -213,7 +213,7 @@ struct CarWash //2)
     4) light time
     5) usage time
 3 things it can do:
-    1) switch on
+    1) switch on 
     2) change dimmer
     3) alert light usage time
  */
@@ -242,7 +242,7 @@ struct CarWash //2)
     2) Location
     3) Operating system
     4) Human interface
-    5) Vision 
+    5) Sensor Array 
 3 things it can do:
     1) CheckLocation 
     2) open voice detection
