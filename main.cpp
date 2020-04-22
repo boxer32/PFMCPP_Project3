@@ -107,7 +107,7 @@ struct CarWash //2)
 
 
 /*
-1) Enging
+1)  Engine //1)write out, in plain-english, 5 traits and 3 things it can do.
 5 properties:
     1) regulator
     2) generator
@@ -119,9 +119,21 @@ struct CarWash //2)
     2) temperature check
     3) switch power on
  */
-
+struct Engine //2)define your struct  Copy your 3+5 comments into your struct body
+{
+//properties:
+    //2) regulator
+    //2) generator
+    //2) temperature
+    //2) transmittion
+    //2) switch
+//things it can do:
+    //2) regulator output
+    //2) temperature check
+    //2) switch power on
+};
 /*
-2) Location
+2) Location //1)write out, in plain-english, 5 traits and 3 things it can do.
 5 properties:
     1) gps module
     2) barometer
@@ -133,9 +145,21 @@ struct CarWash //2)
     2) direction 
     3) tilt detection 
  */
-
+struct Location //2)define your struct  Copy your 3+5 comments into your struct body
+{
+// properties:
+    //2) gps module
+    //2) barometer
+    //2) accelerometer
+    //2) gyroscope
+    //2) cellular module
+// things it can do:
+    //2) latitude
+    //2) direction 
+    //2) tilt detection 
+};
 /*
-3) Operating system
+3) Operating System //1)write out, in plain-english, 5 traits and 3 things it can do.
 5 properties:
     1) music player
     2) file browser
@@ -147,9 +171,21 @@ struct CarWash //2)
     2) open document
     3) open tetris game
  */
-
+struct OperatingSystem //2)define your struct  Copy your 3+5 comments into your struct body
+{
+//properties:
+    //2) music player
+    //2) file browser
+    //2) contact list
+    //2) ebook reader
+    //2) tetris game
+//things it can do:
+    //2) search playlist
+    //2) open document
+    //2) open tetris game
+};
 /*
-4) Human interface
+4) Human Interface //1)write out, in plain-english, 5 traits and 3 things it can do.
 5 properties:
     1) voice control
     2) algoho detector
@@ -161,9 +197,21 @@ struct CarWash //2)
     2) face scanner
     3) detect voice 
  */
-
+struct HumanInterface //2)define your struct  Copy your 3+5 comments into your struct body
+{
+//properties:
+    //2) voice control
+    //2) algoho detector
+    //2) heart rate
+    //2) EGG sensor
+    //2) camera (for face detection)
+//things it can do:
+    //2) read heartrate
+    //2) face scanner
+    //2) detect voice
+};
 /*
-5) Sensor Array 
+5) Sensor Array //1)write out, in plain-english, 5 traits and 3 things it can do.
 5 properties:
     1) infared sensor
     2) nearfield sensor
@@ -175,9 +223,21 @@ struct CarWash //2)
     2) switch rain mode 
     3) near car alert
  */
-
+struct SensorArray
+{
+//properties:
+    //2) infared sensor
+    //2) nearfield sensor
+    //2) rain sensor
+    //2) back camera
+    //2) font camera
+//things it can do:
+    //2) switch to night vision mode 
+    //2) switch rain mode 
+    //2) near car alert
+};
 /*
-6) Battery
+6) Battery //1)write out, in plain-english, 5 traits and 3 things it can do.
 5 properties:
     1) power capacity
     2) tempareture
@@ -189,9 +249,22 @@ struct CarWash //2)
     2) recharge battery
     3) display batterry circle
  */
-
+struct Battery
+{   
+//properties:
+    //2) power capacity
+    //2) tempareture
+    //2) charge status
+    //2) charge circle
+    //2) Battery loss
+    
+//things it can do:
+    //2) power check
+    //2) recharge battery
+    //2) display batterry circle
+};
 /*
-7) Shock Absorber
+7) Shock Absorber //1)write out, in plain-english, 5 traits and 3 things it can do.
 5 properties:
     1) offRoadMode
     2) coil spring tension
@@ -203,9 +276,21 @@ struct CarWash //2)
     2) change lower control ratio
     3) change gas pressure
  */
-
+struct ShockAbsorber
+{
+// properties:
+    //2) offRoadMode
+    //2) coil spring tension
+    //2) lower control ratio
+    //2) gas valve 
+    //2) Shock mount rail
+// things it can do:
+    //2) change coil tension
+    //2) change lower control ratio
+    //2) change gas pressure
+};
 /*
-8) Smart Light Switch
+8) Smart Light Switch //1)write out, in plain-english, 5 traits and 3 things it can do.
 5 properties:
     1) toggle switch
     2) dimmer
@@ -217,9 +302,21 @@ struct CarWash //2)
     2) change dimmer
     3) alert light usage time
  */
-
+struct SmartLightSwitch
+{
+//properties:
+    //2) toggle switch
+    //2) dimmer
+    //2) pulse control
+    //2) light time
+    //2) usage time
+//things it can do:
+    //2) switch on 
+    //2) change dimmer
+    //2) alert light usage time
+};
 /*
-9)  Anti-Theft Device
+9)  Anti Theft Device //1)write out, in plain-english, 5 traits and 3 things it can do.
 5 properties:
     1) alarm
     2) vibration sensor
@@ -231,9 +328,21 @@ struct CarWash //2)
     2) auto lock
     3) reset keypad 
  */
-
+struct AntiTheftDevice
+{
+//properties:
+    //2) alarm
+    //2) vibration sensor
+    //2) door lock
+    //2) keypad 
+    //2) fingerprint sensor
+//things it can do:
+    //2) detect vibration 
+    //2) auto lock
+    //2) reset keypad 
+};
 /*
-10) Autonomous car
+10) Autonomous Car //1)write out, in plain-english, 5 traits and 3 things it can do.
 5 properties:
  These 5 properties should be UDTs that you defined above.
  this goes along with the instruction:
@@ -248,6 +357,20 @@ struct CarWash //2)
     2) open voice detection
     3) DisplayStatus
  */
+ struct AutonomousCar
+ {
+// One of your 10 UDTs should only use UDTs for its member variable types.   !No primitives allowed
+    //2) Enging
+    //2) Location
+    //2) Operating system
+    //2) Human interface
+    //2) Sensor Array 
+// things it can do:
+    //2) CheckLocation 
+    //2) open voice detection
+    //2) DisplayStatus
+
+};
 
 #include <iostream>
 int main()
