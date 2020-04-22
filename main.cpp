@@ -10,7 +10,7 @@ Video:  Chapter 2 Part 5
  1) write 10 user-defined types in plain-English, 
     in the comments above your UDT, write out, in plain-english, 3 things it can do, and 5 traits.
     Note: Your 10th UDT will use 5 of your UDTs for its properties, so maybe start on UDT #10 first. This goes along with instruction #6.
-************************
+**********************
     Commit after you complete this step so i can review before you proceed with the rest of the projects
     Ping me in Slack to review this step.
     Wait for me to review before proceeding with step 2.
@@ -107,146 +107,146 @@ struct CarWash //2)
 
 
 /*
-1)
+1) Enging
 5 properties:
-    1)
-    2)
-    3)
-    4)
-    5)
+    1) regulator
+    2) generator
+    3) temperature
+    4) transmittion
+    5) switch
 3 things it can do:
-    1)
-    2)
-    3)
+    1) regulator output
+    2) temperature check
+    3) switch power on
  */
 
 /*
-2)
+2) Location
 5 properties:
-    1)
-    2)
-    3)
-    4)
-    5)
+    1) gps module
+    2) barometer
+    3) accelerometer
+    4) gyroscope
+    5) cellular module
 3 things it can do:
-    1)
-    2)
-    3)
+    1) latitude
+    2) direction 
+    3) tilt detection 
  */
 
 /*
-3)
+3) Operating system
 5 properties:
-    1)
-    2)
-    3)
-    4)
-    5)
+    1) music player
+    2) file browser
+    3) contact list
+    4) ebook reader
+    5) tetris game
 3 things it can do:
-    1)
-    2)
-    3)
+    1) search playlist
+    2) open document
+    3) open tetris game
  */
 
 /*
-4)
+4) Human interface
 5 properties:
-    1)
-    2)
-    3)
-    4)
-    5)
+    1) voice control
+    2) algoho detector
+    3) heart rate
+    4) EGG sensor
+    5) camera (for face detection)
 3 things it can do:
-    1)
-    2)
-    3)
+    1) read heartrate
+    2) face scanner
+    3) detect voice 
  */
 
 /*
-5)
+5) Sensor Array 
 5 properties:
-    1)
-    2)
-    3)
-    4)
-    5)
+    1) infared sensor
+    2) nearfield sensor
+    3) rain sensor
+    4) back camera
+    5) font camera
 3 things it can do:
-    1)
-    2)
-    3)
+    1) switch to night vision mode 
+    2) switch rain mode 
+    3) near car alert
  */
 
 /*
-6)
+6) Battery
 5 properties:
-    1)
-    2)
-    3)
-    4)
-    5)
+    1) power capacity
+    2) tempareture
+    3) charge status
+    4) charge circle
+    5) Battery loss
 3 things it can do:
-    1)
-    2)
-    3)
+    1) power check
+    2) recharge battery
+    3) display batterry circle
  */
 
 /*
-7)
+7) Shock Absorber
 5 properties:
-    1)
-    2)
-    3)
-    4)
-    5)
+    1) offRoadMode
+    2) coil spring tension
+    3) lower control ratio
+    4) gas valve 
+    5) Shock mount rail
 3 things it can do:
-    1)
-    2)
-    3)
+    1) change coil tension
+    2) change lower control ratio
+    3) change gas pressure
  */
 
 /*
-8)
+8) Smart Light Switch
 5 properties:
-    1)
-    2)
-    3)
-    4)
-    5)
+    1) toggle switch
+    2) dimmer
+    3) pulse control
+    4) light time
+    5) usage time
 3 things it can do:
-    1)
-    2)
-    3)
+    1) switch on 
+    2) change dimmer
+    3) alert light usage time
  */
 
 /*
-9)
+9)  Anti-Theft Device
 5 properties:
-    1)
-    2)
-    3)
-    4)
-    5)
+    1) alarm
+    2) vibration sensor
+    3) door lock
+    4) keypad 
+    5) fingerprint sensor
 3 things it can do:
-    1)
-    2)
-    3)
+    1) detect vibration 
+    2) auto lock
+    3) reset keypad 
  */
 
 /*
-10)
+10) Autonomous car
 5 properties:
  These 5 properties should be UDTs that you defined above.
  this goes along with the instruction:
     One of your 10 UDTs should only use UDTs for its member variable types.
-    1)
-    2)
-    3)
-    4)
-    5)
+    1) Enging
+    2) Location
+    3) Operating system
+    4) Human interface
+    5) Sensor Array 
 3 things it can do:
-    1)
-    2)
-    3)
+    1) CheckLocation 
+    2) open voice detection
+    3) DisplayStatus
  */
 
 #include <iostream>
