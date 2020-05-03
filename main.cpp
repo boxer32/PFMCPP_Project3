@@ -132,15 +132,26 @@ struct Engine //2)define your struct  Copy your 3+5 comments into your struct bo
     bool transmittionLow =   true;//3) member variables with relevant data types
     //2) switch
     bool powerSwitch =       false;//3) member variables with relevant data types
+
+//5) make 2 of the 10 user-defined types have a nested class. 
+     struct voltage 
+     {
+     int curent = 12;
+     float resisstance = 0.1f;
+     void maxCurent(int maximumCurent = 100);
+     
+     };
+
 //things it can do:
     //2) regulator output
- float regulatorFlow(float regulatorStat );
+ float regulatorFlow(float regulatorStat,voltage voltageFlow ); //4 function parameter list for those member functions use some of your User-Defined Types
     //2) temperature check
- int temperatureStat(int newTemperature);
+ int temperatureStat(int newTemperature, voltage voltageTemp); //4 function parameter list for those member functions use some of your User-Defined Types
     //2) switch power on
  bool powerSwitchStat(bool newPowerSwitchStat);
 
-
+//5) a member variable whose type is a UDT.
+voltage averageVoltage;
 };
 /*
 2) Location //1)write out, in plain-english, 5 traits and 3 things it can do.
@@ -202,13 +213,24 @@ struct OperatingSystem //2)define your struct  Copy your 3+5 comments into your 
     bool ebookOpen = true;
     //2) tetris game
     bool tetris = false;
+
+//5) make 2 of the 10 user-defined types have a nested class. 
+    struct dataRecovery
+    {
+        int memoryCapa = 100;
+        bool memoryRead = false;
+        char dateStamp = 'n';
+        void maxMemory(int maximumMemory = 100);
+    };
+
+
 //things it can do:
     //2) search playlist
-    void playerSongList(int musicPlayerSongList );
+    void playerSongList(int musicPlayerSongList,dataRecovery recovery );
     //2) open document
-    void fileNameList(char newFileName);
+    void fileNameList(char newFileName, dataRecovery recovery);
     //2) open tetris game
-    void terisGame(bool tetrisOn);
+    void terisGame(bool tetrisOn,dataRecovery recovery);
 };
 /*
 4) Human Interface //1)write out, in plain-english, 5 traits and 3 things it can do.
@@ -276,7 +298,7 @@ struct SensorArray
     //2) switch to night vision mode 
     void nightVision(bool nightVisionON);
     //2) switch rain mode 
-    Void rainMode(bool rainModeOn);
+    void rainMode(bool rainModeOn);
     //2) near field alert
     bool nearFieldAlert(int nearField);
 };
@@ -404,7 +426,7 @@ struct AntiTheftDevice
 {
 //properties:
     //2) alarm
-    bool alarmStat = false
+    bool alarmStat = false;
     //2) vibration sensor
     int vibration = 0;
     //2) door lock
@@ -415,7 +437,7 @@ struct AntiTheftDevice
     bool fingerprintSensorOn = false;
 //things it can do:
     //2) detect vibration 
-    int vibration(int vibrationParameter);
+    int vibrationValue(int vibrationParameter);
     //2) auto lock
     bool autoDoorLock (bool doorLock);
     //2) reset keypad 
@@ -441,14 +463,23 @@ struct AntiTheftDevice
  {
 // One of your 10 UDTs should only use UDTs for its member variable types.   !No primitives allowed
     //2) Enging
+    Engine  EngineStat;
     //2) Location
+    Location LocationStat;
     //2) Operating system
+    OperatingSystem OsStat;
     //2) Human interface
+    HumanInterface InterfaceStat;
     //2) Sensor Array 
+    SensorArray SensorStat ;
+
 // things it can do:
-    //2) CheckLocation 
+    //2) CheckLocation
+     Location reportLocation(Location newLocation);  
     //2) open voice detection
+     OperatingSystem roportOS(OperatingSystem OsData); 
     //2) DisplayStatus
+     SensorArray sensor(SensorArray sensorData);
 
 };
 
