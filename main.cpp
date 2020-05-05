@@ -121,7 +121,7 @@ struct CarWash //2)
  */
 struct Engine //2)define your struct  Copy your 3+5 comments into your struct body
 {
-//properties:
+    //properties:
     //2) regulator
     float regulator =        0.0f;//3) member variables with relevant data types
     //2) generator
@@ -133,25 +133,26 @@ struct Engine //2)define your struct  Copy your 3+5 comments into your struct bo
     //2) switch
     bool powerSwitch =       false;//3) member variables with relevant data types
 
-//5) make 2 of the 10 user-defined types have a nested class. 
-     struct voltage 
-     {
-     int curent = 12;
-     float resisstance = 0.1f;
-     void maxCurent(int maximumCurent = 100);
+    //5) make 2 of the 10 user-defined types have a nested class. 
+    struct voltage 
+    {
+       int curent = 12;
+       float resisstance = 0.1f;
+       void maxCurent(int maximumCurent = 100);
+
      
-     };
+    };
 
-//things it can do:
+    //things it can do:
     //2) regulator output
- float regulatorFlow(float regulatorStat,voltage voltageFlow ); //4 function parameter list for those member functions use some of your User-Defined Types
+    float regulatorFlow(float regulatorStat,voltage voltageFlow ); //4 function parameter list for those member functions use some of your User-Defined Types
     //2) temperature check
- int temperatureStat(int newTemperature, voltage voltageTemp); //4 function parameter list for those member functions use some of your User-Defined Types
+    int temperatureStat(int newTemperature, voltage voltageTemp); //4 function parameter list for those member functions use some of your User-Defined Types
     //2) switch power on
- bool powerSwitchStat(bool newPowerSwitchStat);
+    bool powerSwitchStat(bool newPowerSwitchStat);
 
-//5) a member variable whose type is a UDT.
-voltage averageVoltage;
+    //5) a member variable whose type is a UDT.
+    voltage averageVoltage;
 };
 /*
 2) Location //1)write out, in plain-english, 5 traits and 3 things it can do.
@@ -168,7 +169,7 @@ voltage averageVoltage;
  */
 struct Location //2)define your struct  Copy your 3+5 comments into your struct body
 {
-// properties:
+    // properties:
     //2) gps module
     int gpsLatitude,gpsLongtitude = 000000000;//3) member variables with relevant data types
     //2) barometer
@@ -179,7 +180,7 @@ struct Location //2)define your struct  Copy your 3+5 comments into your struct 
     float xAxis,yAxis = 0.0f; //3) member variables with relevant data types
     //2) cellular module
     char cellularLocaton = 'N';//3) member variables with relevant data types
-// things it can do:
+    // things it can do:
     //2) latitude
     int gpsLocation(int latitude, int longtitude);
     //2) direction 
@@ -202,7 +203,7 @@ struct Location //2)define your struct  Copy your 3+5 comments into your struct 
  */
 struct OperatingSystem //2)define your struct  Copy your 3+5 comments into your struct body
 {
-//properties:
+    //properties:
     //2) music player
     int musicPlayerSongList = 1; //3) member variables with relevant data types
     //2) file browser
@@ -214,7 +215,7 @@ struct OperatingSystem //2)define your struct  Copy your 3+5 comments into your 
     //2) tetris game
     bool tetris = false;
 
-//5) make 2 of the 10 user-defined types have a nested class. 
+    //5) make 2 of the 10 user-defined types have a nested class. 
     struct dataRecovery
     {
         int memoryCapa = 100;
@@ -224,7 +225,7 @@ struct OperatingSystem //2)define your struct  Copy your 3+5 comments into your 
     };
 
 
-//things it can do:
+    //things it can do:
     //2) search playlist
     void playerSongList(int musicPlayerSongList,dataRecovery recovery );
     //2) open document
@@ -247,7 +248,7 @@ struct OperatingSystem //2)define your struct  Copy your 3+5 comments into your 
  */
 struct HumanInterface //2)define your struct  Copy your 3+5 comments into your struct body
 {
-//properties:
+    //properties:
     //2) voice control
     bool voiceGenderDetection = true;//3) member variables with relevant data types
     //2) alcohol detector
@@ -258,7 +259,7 @@ struct HumanInterface //2)define your struct  Copy your 3+5 comments into your s
     float alphaFreqquemcy = 0.0f;//3) member variables with relevant data types
     //2) camera (for face detection)
     char faceCamera = 'a';//3) member variables with relevant data types
-//things it can do:
+    //things it can do:
     //2) read heartrate
     int heartRateBPM(int heartBpm);
     //2) face scanner
@@ -294,7 +295,7 @@ struct SensorArray
     bool backCamera = true;//3) member variables with relevant data types
     //2) font camera
     bool fontCamera = true;//3) member variables with relevant data types
-//things it can do:
+    //things it can do:
     //2) switch to night vision mode 
     void nightVision(bool nightVisionON);
     //2) switch rain mode 
@@ -317,7 +318,7 @@ struct SensorArray
  */
 struct Battery
 {   
-//properties:
+    //properties:
     //2) power capacity
     int powerCapacity = 100;//3) member variables with relevant data types
     //2) battery tempareture
@@ -330,7 +331,7 @@ struct Battery
     //2) Battery loss
     int batteryLoss = 0;//3) member variables with relevant data types
     
-//things it can do:
+    //things it can do:
     //2) power check
    int batteryCapacity(int newPowerCapacity, int NewBatteryTempareture);
     //2) recharge battery
@@ -354,7 +355,7 @@ struct Battery
  */
 struct ShockAbsorber
 {
-// properties:
+    // properties:
     //2) offRoadMode
     bool offRoadMode = false;//3) member variables with relevant data types
     //2) coil spring tension
@@ -365,7 +366,7 @@ struct ShockAbsorber
     float gasValvePressure = 0.0f;//3) member variables with relevant data types
     //2) Shock mount rail
     int shockMountPosition = 5; //3) member variables with relevant data types
-// things it can do:
+    // things it can do:
     //2) change coil tension
     int coilTensionStat(int newCoilTension);
     //2) change lower control ratio
@@ -389,7 +390,7 @@ struct ShockAbsorber
  */
 struct SmartLightSwitch
 {
-//properties:
+    //properties:
     //2) light toggle switch
     bool lightToggle = false;//3) member variables with relevant data types
     //2) dimmer
@@ -401,7 +402,7 @@ struct SmartLightSwitch
     //2) usage time
     int lightUsage = 0;//3) member variables with relevant data types
 
-//things it can do:
+    //things it can do:
     //2) switch on 
     void lightOn(bool lightSwitch);
     //2) change dimmer
@@ -424,7 +425,7 @@ struct SmartLightSwitch
  */
 struct AntiTheftDevice
 {
-//properties:
+    //properties:
     //2) alarm
     bool alarmStat = false;
     //2) vibration sensor
@@ -435,7 +436,7 @@ struct AntiTheftDevice
     bool keypadPowerOn = false;
     //2) fingerprint sensor
     bool fingerprintSensorOn = false;
-//things it can do:
+    //things it can do:
     //2) detect vibration 
     int vibrationValue(int vibrationParameter);
     //2) auto lock
@@ -461,7 +462,7 @@ struct AntiTheftDevice
  */
  struct AutonomousCar
  {
-// One of your 10 UDTs should only use UDTs for its member variable types.   !No primitives allowed
+    // One of your 10 UDTs should only use UDTs for its member variable types.   !No primitives allowed
     //2) Enging
     Engine  EngineStat;
     //2) Location
@@ -473,13 +474,13 @@ struct AntiTheftDevice
     //2) Sensor Array 
     SensorArray SensorStat ;
 
-// things it can do:
+    // things it can do:
     //2) CheckLocation
-     Location reportLocation(Location newLocation);  
+    Location reportLocation(Location newLocation);  
     //2) open voice detection
-     OperatingSystem roportOS(OperatingSystem OsData); 
+    OperatingSystem roportOS(OperatingSystem OsData); 
     //2) DisplayStatus
-     SensorArray sensor(SensorArray sensorData);
+    SensorArray sensor(SensorArray sensorData);
 
 };
 
