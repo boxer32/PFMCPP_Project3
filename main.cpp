@@ -29,7 +29,6 @@ void Leg::stepForward()
 
 int Leg::stepSize()
 {
-
     return 2;
 }
 
@@ -67,7 +66,6 @@ void Person::run(int howFast, bool startWithLeftFoot)
     else
     {
      //noting or "return char please insert howFast?"
-
     }
 }
  /*
@@ -93,8 +91,6 @@ struct Engine
        int curent = 12;
        float resisstance = 0.1f;
        void maxCurent(int maximumCurent = 100);
-
-     
     };
 
   
@@ -102,7 +98,6 @@ struct Engine
     int temperatureStat(int newTemperature, voltage voltageTemp); 
     bool powerSwitchStat(bool newPowerSwitchStat);
 
-    
     voltage averageVoltage;
 };
 
@@ -117,7 +112,6 @@ float Engine::regulatorFlow(float regulatorStat, Engine::voltage voltageFlow)
     {
         voltageFlow.curent = 0; // engine can't start
         powerSwitch = false;
-
     }
     return voltageFlow.resisstance;
 
@@ -153,8 +147,6 @@ bool Engine::powerSwitchStat(bool newPowerSwitchStat)
     return newPowerSwitchStat;
 
 }
-
-
 //-----------EngineEnd
 
 
@@ -179,7 +171,6 @@ int Location::gpsLocation(int latitude, int longtitude)
     {
        latitude += latitude;
        return latitude;
-
     }
     else
     {
@@ -200,7 +191,6 @@ float Location::accelerometerStat(float newAccelerometer)
     }
     return  accelerometor;
 }
-
 int Location::gyroscopeStat(int newGyrometer)
 {
     if(accelerometor > 2.0f)
@@ -327,7 +317,6 @@ char HumanInterface::faceType(char readCameraData)
     {
         readCameraData = 'n'; // not read
         faceCamera = 'c'; 
-    
     }
     return faceCamera;
 
@@ -337,14 +326,11 @@ char HumanInterface::voiceType(char getType)
 {
     if(faceCamera == 'o' && alcoholPercentage < 20)
     {
-        getType = 'M'; // female for example
-
-        
+        getType = 'M'; // female for example  
     }
     else
     {
         getType = 'F';
-
     }
     return getType;
 
@@ -426,7 +412,6 @@ int Battery::batteryCapacity(int newPowerCapacity, int NewBatteryTempareture)
     {
         NewBatteryTempareture = batteryTempareture;
         newPowerCapacity = powerCapacity;
-    
     }
     return newPowerCapacity;
 }
@@ -439,7 +424,6 @@ void Battery::rechargeStat(bool rechargeOn)
     else
     {
         chargeMode = false;
-
     }
 }
 int Battery::batteryCircle(int NewBatteryCircle)
@@ -447,7 +431,6 @@ int Battery::batteryCircle(int NewBatteryCircle)
     if(chargeMode == true)
     {
        NewBatteryCircle++;
-
     }
     return NewBatteryCircle;
 }
@@ -500,8 +483,7 @@ float ShockAbsorber::gasPressure(float newGasPressure)
 
 //-----------SmartLightSwitch
 struct SmartLightSwitch
-{
-    
+{ 
     bool lightToggle = false;
     float dimmerValve = 0.5f;
     int emegencyLightPulse = 0;
@@ -544,8 +526,7 @@ int SmartLightSwitch::usageTime(int newLightUsage = 0)
 //----------AntiTheftDeviceStart
 
 struct AntiTheftDevice
-{
-    
+{    
     bool alarmStat = false;
     int vibration = 0;
     bool doorLockStat = true;
@@ -601,8 +582,7 @@ bool AntiTheftDevice::keypadReset(bool reset)
 //-----------AntiTheftDeviceEnd
 
  struct AutonomousCar
- {
-    
+ {  
     Engine  EngineStat;
     Location LocationStat;
     OperatingSystem OsStat;
@@ -612,7 +592,6 @@ bool AntiTheftDevice::keypadReset(bool reset)
     Location reportLocation(Location newLocation);  
     OperatingSystem reportOS(OperatingSystem OsData); 
     SensorArray sensor(SensorArray sensorData);
-
 };
 Location AutonomousCar::reportLocation(Location newLocation)
 {
@@ -620,9 +599,7 @@ Location AutonomousCar::reportLocation(Location newLocation)
     {
         newLocation.accelerometor = LocationStat.accelerometor;
     }
-    return  newLocation;
-   
-   
+    return  newLocation;  
 }
 OperatingSystem AutonomousCar::reportOS(OperatingSystem OsData)
 {
@@ -639,8 +616,6 @@ SensorArray AutonomousCar::sensor(SensorArray sensorData)
         sensorData.infaredNightDetection = EngineStat.powerSwitch;
     }
     return sensorData;
-
-
 }
 
 
