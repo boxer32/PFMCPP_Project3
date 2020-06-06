@@ -541,7 +541,7 @@ int SmartLightSwitch::usageTime(int newLightUsage = 0)
     return newLightUsage;
 
 }
-//-----------AntiTheftDeviceStart
+//----------AntiTheftDeviceStart
 
 struct AntiTheftDevice
 {
