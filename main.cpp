@@ -79,9 +79,7 @@ void Person::run(int howFast, bool startWithLeftFoot)
 //-----------EngineStart
 struct Engine 
 {
-  
     float regulator =        0.0f;
-   
     bool generator =         true;
     int temperature =        0;
     bool transmittionLow =   true;
@@ -92,12 +90,9 @@ struct Engine
        float resisstance = 0.1f;
        void maxCurent(int maximumCurent = 100);
     };
-
-  
     float regulatorFlow(float regulatorStat,voltage voltageFlow ); 
     int temperatureStat(int newTemperature, voltage voltageTemp); 
     bool powerSwitchStat(bool newPowerSwitchStat);
-
     voltage averageVoltage;
 };
 
@@ -114,41 +109,36 @@ float Engine::regulatorFlow(float regulatorStat, Engine::voltage voltageFlow)
         powerSwitch = false;
     }
     return voltageFlow.resisstance;
-
 }
 
 int Engine::temperatureStat(int newTemperature, Engine::voltage voltageTemp)
 {
-    if(generator == true)
+    if(newTemperature > 35)
     {
-        temperature = 30;
         voltageTemp.resisstance = 1.2f;
     }
     else
     {
-        temperature = 30;
         voltageTemp.resisstance = 10.2f;
     }
-    newTemperature = temperature;
+    temperature = newTemperature;
     return newTemperature;
 } 
 bool Engine::powerSwitchStat(bool newPowerSwitchStat)
 {
-    if(powerSwitch == true)
+    if(newPowerSwitchStat == true)
     {
         transmittionLow = false; // normal transmittion mode
-        newPowerSwitchStat = true;
+        generator = false;
     }
     else
     {
         transmittionLow = true; // low transmittion mode
-        newPowerSwitchStat = false;
+        generator = true;
     }
     return newPowerSwitchStat;
-
 }
 //-----------EngineEnd
-
 
 //-----------LocationStart
 struct Location 
@@ -167,23 +157,20 @@ struct Location
 int Location::gpsLocation(int latitude, int longtitude)
 {
    
-    if (accelerometor > 5.0f)
+    if (latitude !=0 && longtitude != 0)
     {
-       latitude += latitude;
-       return latitude;
+        return latitude + longtitude;
     }
     else
     {
-        return longtitude;
-    }
-     
+        return 0; 
+    }  
 }
 float Location::accelerometerStat(float newAccelerometer)
 {
     if(cellularLocaton != 'A')
     {
-        accelerometor = newAccelerometer;
-        
+        accelerometor = newAccelerometer;    
     }
     else
     {
@@ -202,8 +189,6 @@ int Location::gyroscopeStat(int newGyrometer)
     else
     {
         barometorUnit = 0;
-
-
     }
     return barometorUnit;
 }
@@ -211,8 +196,7 @@ int Location::gyroscopeStat(int newGyrometer)
 
 //-----------OperatingSystemStart
 struct OperatingSystem 
-{
-    
+{  
     int musicPlayerSongList = 1; 
     char fileName = 'a';
     char contactList = 'b';
@@ -226,9 +210,6 @@ struct OperatingSystem
         char dateStamp = 'n';
         void maxMemory(int maximumMemory = 100);
     };
-
-
-
     void playerSongList(int PlayerSongList,dataRecovery recovery );
     void fileNameList(char newFileName, dataRecovery recovery);
     void terisGame(bool tetrisOn,dataRecovery recovery);
@@ -238,15 +219,11 @@ void OperatingSystem::playerSongList(int PlayerSongList, OperatingSystem::dataRe
     if(musicPlayerSongList == 0)
     {
         recovery.memoryRead = true;
-        
         PlayerSongList = 1; //reset list
-
     }
     else
-    {
-        
-        recovery.memoryRead = false;
-        
+    {  
+        recovery.memoryRead = false;  
     }
 }
 void OperatingSystem::fileNameList(char newFileName, OperatingSystem::dataRecovery recovery)
@@ -280,8 +257,7 @@ void OperatingSystem::terisGame(bool tetrisOn, OperatingSystem::dataRecovery rec
 
 //-----------HumanInterfaceStart
 struct HumanInterface 
-{
-    
+{   
     bool voiceGenderDetection = false;
     int alcoholPercentage = 0;
     int heartRate = 0;
@@ -306,8 +282,7 @@ int HumanInterface::heartRateBPM(int heartBpm)
     }
 }
 char HumanInterface::faceType(char readCameraData)
-{
-    
+{  
     if(heartRate < 110 && voiceGenderDetection == true)
     {
         readCameraData = 'r'; // r is read
@@ -318,9 +293,7 @@ char HumanInterface::faceType(char readCameraData)
         readCameraData = 'n'; // not read
         faceCamera = 'c'; 
     }
-    return faceCamera;
-
-    
+    return faceCamera; 
 }
 char HumanInterface::voiceType(char getType)
 {
@@ -333,15 +306,12 @@ char HumanInterface::voiceType(char getType)
         getType = 'F';
     }
     return getType;
-
 }
-
 //-----------HumanInterfaceEnd
 
 //-----------SensorArrayStrat
 struct SensorArray
 {
-
     bool infaredNightDetection = true;
     int nearfeildDistance = 100;
     bool rainDetection = false;
@@ -389,17 +359,16 @@ bool SensorArray::nearFieldAlert(int nearField)
 
 //-----------BatteryStart
 struct Battery
-{   
-    
+{     
     int powerCapacity = 100;
     int batteryTempareture = 0;
     bool chargeMode = false;
     int chargeCircle = 0;
     int batteryLoss = 0;
 
-   int batteryCapacity(int newPowerCapacity, int NewBatteryTempareture);
-   void rechargeStat(bool rechargeOn);
-   int batteryCircle(int NewBatteryCircle = 0);
+    int batteryCapacity(int newPowerCapacity, int NewBatteryTempareture);
+    void rechargeStat(bool rechargeOn);
+    int batteryCircle(int NewBatteryCircle = 0);
 };
 int Battery::batteryCapacity(int newPowerCapacity, int NewBatteryTempareture)
 {
@@ -434,8 +403,6 @@ int Battery::batteryCircle(int NewBatteryCircle)
     }
     return NewBatteryCircle;
 }
-
-
 //-----------BatteryEnd
 
 //-----------ShockAbsorberStart
@@ -451,7 +418,6 @@ struct ShockAbsorber
     int coilTensionStat(int newCoilTension);
     int lowerControl(int  newLowerControlRatio);
     float gasPressure(float newGasPressure);
-
 };
 int ShockAbsorber::coilTensionStat(int newCoilTension = 10)
 {
@@ -468,7 +434,6 @@ int ShockAbsorber::lowerControl(int newLowerControlRatio = 5) //normal ratio
         lowerControlRatio = newLowerControlRatio + shockMountPosition;
     }
     return lowerControlRatio;
-
 }
 float ShockAbsorber::gasPressure(float newGasPressure)
 {
@@ -478,10 +443,9 @@ float ShockAbsorber::gasPressure(float newGasPressure)
     }
     return gasValvePressure;
 }
-
 //-----------ShockAbsorberEnd
 
-//-----------SmartLightSwitch
+//-----------SmartLightSwitchStart
 struct SmartLightSwitch
 { 
     bool lightToggle = false;
@@ -521,10 +485,10 @@ int SmartLightSwitch::usageTime(int newLightUsage = 0)
         newLightUsage++;
     }
     return newLightUsage;
-
 }
-//----------AntiTheftDeviceStart
+//-----------SmartLightSwitchEnd
 
+//----------AntiTheftDeviceStart
 struct AntiTheftDevice
 {    
     bool alarmStat = false;
@@ -543,15 +507,12 @@ int AntiTheftDevice::vibrationValue(int vibrationParameter = 0)
     {
         alarmStat = true;
         doorLockStat = true;
-
     }
     else
     {
         alarmStat = false;
-    
     }
     return vibrationParameter;
-
 }
 bool AntiTheftDevice::autoDoorLock(bool doorLock)
 {
@@ -578,9 +539,9 @@ bool AntiTheftDevice::keypadReset(bool reset)
     }
     return keypadPowerOn;
 }
-
 //-----------AntiTheftDeviceEnd
 
+//-----------AutonomousCarStart
  struct AutonomousCar
  {  
     Engine  EngineStat;
@@ -617,6 +578,7 @@ SensorArray AutonomousCar::sensor(SensorArray sensorData)
     }
     return sensorData;
 }
+//-----------AutonomousCarEnd
 
 
 /*
