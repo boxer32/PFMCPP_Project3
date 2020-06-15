@@ -15,7 +15,7 @@ Create a branch named Part2
     You'll need to insert the Person struct from the video in the space below.
  */
 
-struct Leg 
+struct Leg  FIXME this type should be 'Foot', not 'Leg'
 {
     void stepForward();
     int stepSize();
@@ -40,7 +40,7 @@ struct Person
     float GPA;
     unsigned int SATScore;
     int distanceTraveled;
-    Leg leftFoot;
+    Leg leftFoot; FIXME this type should be 'Foot', not 'Leg'
     Leg rightFoot;
 
     void run(int howFast, bool startWithLeftFoot);
@@ -84,7 +84,7 @@ struct Engine
     int temperature =        0;
     bool transmittionLow =   true;
     bool powerSwitch =       false;
-    struct voltage 
+    struct voltage FIXME type names always start with a capital letter
     {
        int curent = 12;
        float resisstance = 0.1f;
@@ -203,7 +203,7 @@ struct OperatingSystem
     bool ebookOpen = true;
     bool tetris = false;
  
-    struct dataRecovery
+    struct dataRecovery FIXME type names always start with a capital letter
     {
         int memoryCapa = 100;
         bool memoryRead = false;
