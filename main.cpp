@@ -15,19 +15,19 @@ Create a branch named Part2
     You'll need to insert the Person struct from the video in the space below.
  */
 
-struct Leg  FIXME this type should be 'Foot', not 'Leg'
+struct Foot //fixed
 {
     void stepForward();
     int stepSize();
 
 };
 
-void Leg::stepForward()
+void Foot::stepForward()
 {
   // no return
 }
 
-int Leg::stepSize()
+int Foot::stepSize()
 {
     return 2;
 }
@@ -40,8 +40,8 @@ struct Person
     float GPA;
     unsigned int SATScore;
     int distanceTraveled;
-    Leg leftFoot; FIXME this type should be 'Foot', not 'Leg'
-    Leg rightFoot;
+    Foot leftFoot; 
+    Foot rightFoot;
 
     void run(int howFast, bool startWithLeftFoot);
 };
@@ -84,19 +84,19 @@ struct Engine
     int temperature =        0;
     bool transmittionLow =   true;
     bool powerSwitch =       false;
-    struct voltage FIXME type names always start with a capital letter
+    struct Voltage //fixed
     {
        int curent = 12;
        float resisstance = 0.1f;
        void maxCurent(int maximumCurent = 100);
     };
-    float regulatorFlow(float regulatorStat,voltage voltageFlow ); 
-    int temperatureStat(int newTemperature, voltage voltageTemp); 
+    float regulatorFlow(float regulatorStat,Voltage voltageFlow ); 
+    int temperatureStat(int newTemperature, Voltage voltageTemp); 
     bool powerSwitchStat(bool newPowerSwitchStat);
-    voltage averageVoltage;
+    Voltage averageVoltage;
 };
 
-float Engine::regulatorFlow(float regulatorStat, Engine::voltage voltageFlow)
+float Engine::regulatorFlow(float regulatorStat, Engine::Voltage voltageFlow)
 {
     if(regulatorStat == 10.0f)
     {
@@ -111,7 +111,7 @@ float Engine::regulatorFlow(float regulatorStat, Engine::voltage voltageFlow)
     return voltageFlow.resisstance;
 }
 
-int Engine::temperatureStat(int newTemperature, Engine::voltage voltageTemp)
+int Engine::temperatureStat(int newTemperature, Engine::Voltage voltageTemp)
 {
     if(newTemperature > 35)
     {
@@ -203,18 +203,18 @@ struct OperatingSystem
     bool ebookOpen = true;
     bool tetris = false;
  
-    struct dataRecovery FIXME type names always start with a capital letter
+    struct DataRecovery //fixed
     {
         int memoryCapa = 100;
         bool memoryRead = false;
         char dateStamp = 'n';
         void maxMemory(int maximumMemory = 100);
     };
-    void playerSongList(int PlayerSongList,dataRecovery recovery );
-    void fileNameList(char newFileName, dataRecovery recovery);
-    void terisGame(bool tetrisOn,dataRecovery recovery);
+    void playerSongList(int PlayerSongList,DataRecovery recovery );
+    void fileNameList(char newFileName, DataRecovery recovery);
+    void terisGame(bool tetrisOn,DataRecovery recovery);
 };
-void OperatingSystem::playerSongList(int PlayerSongList, OperatingSystem::dataRecovery recovery)
+void OperatingSystem::playerSongList(int PlayerSongList, OperatingSystem::DataRecovery recovery)
 {
     if(musicPlayerSongList == 0)
     {
@@ -226,7 +226,7 @@ void OperatingSystem::playerSongList(int PlayerSongList, OperatingSystem::dataRe
         recovery.memoryRead = false;  
     }
 }
-void OperatingSystem::fileNameList(char newFileName, OperatingSystem::dataRecovery recovery)
+void OperatingSystem::fileNameList(char newFileName, OperatingSystem::DataRecovery recovery)
 {
     if(musicPlayerSongList > 1)
     {
@@ -239,7 +239,7 @@ void OperatingSystem::fileNameList(char newFileName, OperatingSystem::dataRecove
         fileName ='a';
     }
 }
-void OperatingSystem::terisGame(bool tetrisOn, OperatingSystem::dataRecovery recovery)
+void OperatingSystem::terisGame(bool tetrisOn, OperatingSystem::DataRecovery recovery)
 {
     if(tetris == true)
     {
