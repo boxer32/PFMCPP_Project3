@@ -15,10 +15,59 @@ Create a branch named Part2
     You'll need to insert the Person struct from the video in the space below.
  */
 
+struct Foot //fixed
+{
+    void stepForward();
+    int stepSize();
 
+};
 
+void Foot::stepForward()
+{
+  // no return
+}
 
+int Foot::stepSize()
+{
+    return 2;
+}
 
+struct Person
+{
+    int age;
+    int height;
+    float hairLength;
+    float GPA;
+    unsigned int SATScore;
+    int distanceTraveled;
+    Foot leftFoot; 
+    Foot rightFoot;
+
+    void run(int howFast, bool startWithLeftFoot);
+};
+
+void Person::run(int howFast, bool startWithLeftFoot)
+{
+    if (howFast >= 1)
+    {
+        if (startWithLeftFoot == true)
+        {
+            leftFoot.stepForward();
+            rightFoot.stepForward();
+        }
+         else
+        {
+            rightFoot.stepForward();
+            leftFoot.stepForward();
+        }
+        distanceTraveled += leftFoot.stepSize() + rightFoot.stepSize();
+
+    }
+    else
+    {
+     //noting or "return char please insert howFast?"
+    }
+}
  /*
  2) provide implementations for the member functions you declared in your 10 user-defined types from the previous video outside of your UDT definitions.
  
@@ -27,383 +76,501 @@ Create a branch named Part2
  4) After you finish defining each type/function, click the [run] button.  Clear up any errors or warnings as best you can.
  */
 
-/*
-1)  Engine //1)write out, in plain-english, 5 traits and 3 things it can do.
-5 properties:
-    1) regulator
-    2) generator
-    3) temperature
-    4) transmittion
-    5) switch
-3 things it can do:
-    1) regulator output
-    2) temperature check
-    3) switch power on
- */
-struct Engine //2)define your struct  Copy your 3+5 comments into your struct body
+//-----------EngineStart
+struct Engine 
 {
-    //properties:
-    //2) regulator
-    float regulator =        0.0f;//3) member variables with relevant data types
-    //2) generator
-    bool generator =         true;//3) member variables with relevant data types
-    //2) temperature
-    int temperature =        0;//3) member variables with relevant data types
-    //2) transmittion
-    bool transmittionLow =   true;//3) member variables with relevant data types
-    //2) switch
-    bool powerSwitch =       false;//3) member variables with relevant data types
-
-    //5) make 2 of the 10 user-defined types have a nested class. 
-    struct voltage 
+    float regulator =        0.0f;
+    bool generator =         true;
+    int temperature =        0;
+    bool transmittionLow =   true;
+    bool powerSwitch =       false;
+    struct Voltage //fixed
     {
        int curent = 12;
        float resisstance = 0.1f;
        void maxCurent(int maximumCurent = 100);
-
-     
     };
-
-    //things it can do:
-    //2) regulator output
-    float regulatorFlow(float regulatorStat,voltage voltageFlow ); //4 function parameter list for those member functions use some of your User-Defined Types
-    //2) temperature check
-    int temperatureStat(int newTemperature, voltage voltageTemp); //4 function parameter list for those member functions use some of your User-Defined Types
-    //2) switch power on
+    float regulatorFlow(float regulatorStat,Voltage voltageFlow ); 
+    int temperatureStat(int newTemperature, Voltage voltageTemp); 
     bool powerSwitchStat(bool newPowerSwitchStat);
+    Voltage averageVoltage;
+};
 
-    //5) a member variable whose type is a UDT.
-    voltage averageVoltage;
-};
-/*
-2) Location //1)write out, in plain-english, 5 traits and 3 things it can do.
-5 properties:
-    1) gps module
-    2) barometer
-    3) accelerometer
-    4) gyroscope
-    5) cellular module
-3 things it can do:
-    1) latitude
-    2) direction 
-    3) tilt detection 
- */
-struct Location //2)define your struct  Copy your 3+5 comments into your struct body
+float Engine::regulatorFlow(float regulatorStat, Engine::Voltage voltageFlow)
 {
-    // properties:
-    //2) gps module
-    int gpsLatitude,gpsLongtitude = 000000000;//3) member variables with relevant data types
-    //2) barometer
-    int barometorUnit = 0;//3) member variables with relevant data types
-    //2) accelerometer
-    float accelerometor = 0.0f; //3) member variables with relevant data types
-    //2) gyroscope
-    float xAxis,yAxis = 0.0f; //3) member variables with relevant data types
-    //2) cellular module
-    char cellularLocaton = 'N';//3) member variables with relevant data types
-    // things it can do:
-    //2) latitude
-    int gpsLocation(int latitude, int longtitude);
-    //2) direction 
-    float accelerometerStat(int newAccelerometer); 
-    //2) tilt detection 
-    float gyroscopeStat(int newGyrometer);
-};
-/*
-3) Operating System //1)write out, in plain-english, 5 traits and 3 things it can do.
-5 properties:
-    1) music player
-    2) file browser
-    3) contact list
-    4) ebook reader
-    5) tetris game
-3 things it can do:
-    1) search playlist
-    2) open document
-    3) open tetris game
- */
-struct OperatingSystem //2)define your struct  Copy your 3+5 comments into your struct body
+    if(regulatorStat == 10.0f)
+    {
+        voltageFlow.curent = 5;
+        powerSwitch = true;
+    }
+    else
+    {
+        voltageFlow.curent = 0; // engine can't start
+        powerSwitch = false;
+    }
+    return voltageFlow.resisstance;
+}
+
+int Engine::temperatureStat(int newTemperature, Engine::Voltage voltageTemp)
 {
-    //properties:
-    //2) music player
-    int musicPlayerSongList = 1; //3) member variables with relevant data types
-    //2) file browser
+    if(newTemperature > 35)
+    {
+        voltageTemp.resisstance = 1.2f;
+    }
+    else
+    {
+        voltageTemp.resisstance = 10.2f;
+    }
+    temperature = newTemperature;
+    return newTemperature;
+} 
+bool Engine::powerSwitchStat(bool newPowerSwitchStat)
+{
+    if(newPowerSwitchStat == true)
+    {
+        transmittionLow = false; // normal transmittion mode
+        generator = false;
+    }
+    else
+    {
+        transmittionLow = true; // low transmittion mode
+        generator = true;
+    }
+    return newPowerSwitchStat;
+}
+//-----------EngineEnd
+
+//-----------LocationStart
+struct Location 
+{
+   
+    int gpsLatitude,gpsLongtitude = 0;
+    int barometorUnit = 0;
+    float accelerometor = 0.0f; 
+    float xAxis,yAxis = 0.0f; 
+    char cellularLocaton = 'N';
+   
+    int gpsLocation(int latitude, int longtitude); 
+    float accelerometerStat(float newAccelerometer); 
+    int gyroscopeStat(int newGyrometer);
+};
+int Location::gpsLocation(int latitude, int longtitude)
+{
+   
+    if (latitude !=0 && longtitude != 0) //fixed 
+    {
+        return latitude + longtitude; //car move
+    }
+    return 0; // car stop
+}
+float Location::accelerometerStat(float newAccelerometer)
+{
+    if(cellularLocaton != 'A')
+    {
+        accelerometor = newAccelerometer;    
+    }
+    else
+    {
+        accelerometor = 0.0f;
+    }
+    return  accelerometor;
+}
+int Location::gyroscopeStat(int newGyrometer)
+{
+    if(accelerometor > 2.0f)
+    {
+        barometorUnit = 12;
+        xAxis = accelerometor;
+        yAxis = newGyrometer;
+    }
+    else
+    {
+        barometorUnit = 0;
+    }
+    return barometorUnit;
+}
+//-----------LocationEnd
+
+//-----------OperatingSystemStart
+struct OperatingSystem 
+{  
+    int musicPlayerSongList = 1; 
     char fileName = 'a';
-    //2) contact list
     char contactList = 'b';
-    //2) ebook reader
     bool ebookOpen = true;
-    //2) tetris game
     bool tetris = false;
-
-    //5) make 2 of the 10 user-defined types have a nested class. 
-    struct dataRecovery
+ 
+    struct DataRecovery //fixed
     {
         int memoryCapa = 100;
         bool memoryRead = false;
         char dateStamp = 'n';
         void maxMemory(int maximumMemory = 100);
     };
-
-
-    //things it can do:
-    //2) search playlist
-    void playerSongList(int musicPlayerSongList,dataRecovery recovery );
-    //2) open document
-    void fileNameList(char newFileName, dataRecovery recovery);
-    //2) open tetris game
-    void terisGame(bool tetrisOn,dataRecovery recovery);
+    void playerSongList(int PlayerSongList,DataRecovery recovery );
+    void fileNameList(char newFileName, DataRecovery recovery);
+    void terisGame(bool tetrisOn,DataRecovery recovery);
 };
-/*
-4) Human Interface //1)write out, in plain-english, 5 traits and 3 things it can do.
-5 properties:
-    1) voice control
-    2) algoho detector
-    3) heart rate
-    4) EGG sensor
-    5) camera (for face detection)
-3 things it can do:
-    1) read heartrate
-    2) face scanner
-    3) detect voice 
- */
-struct HumanInterface //2)define your struct  Copy your 3+5 comments into your struct body
+void OperatingSystem::playerSongList(int PlayerSongList, OperatingSystem::DataRecovery recovery)
 {
-    //properties:
-    //2) voice control
-    bool voiceGenderDetection = true;//3) member variables with relevant data types
-    //2) alcohol detector
-    int alcoholPercentage = 0;//3) member variables with relevant data types
-    //2) heart rate
-    int heartRate = 0;//3) member variables with relevant data types
-    //2) EGG sensor
-    float alphaFreqquemcy = 0.0f;//3) member variables with relevant data types
-    //2) camera (for face detection)
-    char faceCamera = 'a';//3) member variables with relevant data types
-    //things it can do:
-    //2) read heartrate
-    int heartRateBPM(int heartBpm);
-    //2) face scanner
+    if(musicPlayerSongList == 0)
+    {
+        recovery.memoryRead = true;
+        PlayerSongList = 1; //reset list
+    }
+    else
+    {  
+        recovery.memoryRead = false;  
+    }
+}
+void OperatingSystem::fileNameList(char newFileName, OperatingSystem::DataRecovery recovery)
+{
+    if(musicPlayerSongList > 1)
+    {
+        fileName = newFileName;
+         recovery.dateStamp = 'N';
+    }
+    else
+    {
+        recovery.dateStamp = 'D';
+        fileName ='a';
+    }
+}
+void OperatingSystem::terisGame(bool tetrisOn, OperatingSystem::DataRecovery recovery)
+{
+    if(tetris == true)
+    {
+        tetrisOn = true;
+        recovery.memoryCapa = 50;
+
+    }
+    else
+    {
+        tetrisOn = false;
+        recovery.memoryCapa = 50;
+    }
+}
+//-----------OperatingSystemEnd
+
+//-----------HumanInterfaceStart
+struct HumanInterface 
+{   
+    bool voiceGenderDetection = false;
+    int alcoholPercentage = 0;
+    int heartRate = 0;
+    float alphaFrequency = 0.0f;
+    char faceCamera = 'c'; //c is close camera
+
+    bool heartRateBPM(int heartBpm);
     char faceType(char readCameraData);
-    //2) detect voice
     char voiceType(char getType);
 
 
 };
-/*
-5) Sensor Array //1)write out, in plain-english, 5 traits and 3 things it can do.
-5 properties:
-    1) infared sensor
-    2) nearfield sensor
-    3) rain sensor
-    4) back camera
-    5) font camera
-3 things it can do:
-    1) switch to night vision mode 
-    2) switch rain mode 
-    3) near car alert
- */
+bool HumanInterface::heartRateBPM(int heartBpm) // i think boolean return valve is makesense
+{
+    if(alcoholPercentage > 40 && heartBpm > 100 ) //add heartBpm
+    {
+        return false;  //fixed
+    }
+    return  true;
+}
+char HumanInterface::faceType(char readCameraData)
+{  
+    if(heartRate < 110 && voiceGenderDetection == true)
+    {
+        readCameraData = 'r'; // r is read
+        faceCamera = 'o';// open camera by char 'o'
+    }
+    else 
+    {
+        readCameraData = 'n'; // not read
+        faceCamera = 'c'; 
+    }
+    return faceCamera; 
+}
+char HumanInterface::voiceType(char getType)
+{
+    if(faceCamera == 'o' && alcoholPercentage < 20)
+    {
+        getType = 'M'; // female for example  
+    }
+    else
+    {
+        getType = 'F';
+    }
+    return getType;
+}
+//-----------HumanInterfaceEnd
+
+//-----------SensorArrayStrat
 struct SensorArray
 {
-//properties:
-    //2) infared sensor
-    bool infaredNightDetection = true;//3) member variables with relevant data types
-    //2) nearfield sensor
-    int nearfeildDistance = 100;//3) member variables with relevant data types
-    //2) rain sensor
-    bool rainDetection = false;//3) member variables with relevant data types 
-    //2) back camera
-    bool backCamera = true;//3) member variables with relevant data types
-    //2) font camera
-    bool fontCamera = true;//3) member variables with relevant data types
-    //things it can do:
-    //2) switch to night vision mode 
+    bool infaredNightDetection = true;
+    int nearfeildDistance = 100;
+    bool rainDetection = false;
+    bool backCamera = true;
+    bool fontCamera = true;
+    
     void nightVision(bool nightVisionON);
-    //2) switch rain mode 
     void rainMode(bool rainModeOn);
-    //2) near field alert
     bool nearFieldAlert(int nearField);
 };
-/*
-6) Battery //1)write out, in plain-english, 5 traits and 3 things it can do.
-5 properties:
-    1) power capacity
-    2) tempareture
-    3) charge status
-    4) charge circle
-    5) Battery loss
-3 things it can do:
-    1) power check
-    2) recharge battery
-    3) display batterry circle
- */
-struct Battery
-{   
-    //properties:
-    //2) power capacity
-    int powerCapacity = 100;//3) member variables with relevant data types
-    //2) battery tempareture
-    int batteryTempareture = 100;//3) member variables with relevant data types
+void SensorArray::nightVision(bool nightVisionON)
+{
+    if(nightVisionON == true)
+    {
+        infaredNightDetection = true;
+    }
+    else
+    {
+        infaredNightDetection = false;
+    }
+}
+void SensorArray::rainMode(bool rainModeOn)
+{
+    if(rainModeOn == true)
+    {
+        nearfeildDistance = 200;
+    }
+    else
+    {
+        nearfeildDistance = 100;
+    }
+}
+bool SensorArray::nearFieldAlert(int nearField)
+{
+    if(nearField == nearfeildDistance)
+    {
+        return true; // fixed
+    }
+    return false;
+}
+//-----------SensorArrayEnd
 
-    //2) charge status
-    bool chargeMode = true;//3) member variables with relevant data types
-    //2) charge circle
-    int chargeCircle = 0;//3) member variables with relevant data types
-    //2) Battery loss
-    int batteryLoss = 0;//3) member variables with relevant data types
-    
-    //things it can do:
-    //2) power check
-   int batteryCapacity(int newPowerCapacity, int NewBatteryTempareture);
-    //2) recharge battery
-   void rechargeStat(bool rechargeOn);
-    //2) display batterry circle
-   int batteryCircle(int NewBatteryCircle);
+//-----------BatteryStart
+struct Battery
+{     
+    int powerCapacity = 100;
+    int batteryTempareture = 0;
+    bool chargeMode = false;
+    int chargeCircle = 0;
+    int batteryLoss = 0;
+
+    int batteryCapacity(int newPowerCapacity, int NewBatteryTempareture);
+    void rechargeStat(bool rechargeOn);
+    int batteryCircle(int NewBatteryCircle = 0);
 };
-/*
-7) Shock Absorber //1)write out, in plain-english, 5 traits and 3 things it can do.
-5 properties:
-    1) offRoadMode
-    
-    2) coil spring tension
-    3) lower control ratio
-    4) gas valve 
-    5) Shock mount rail
-3 things it can do:
-    1) change coil tension
-    2) change lower control ratio
-    3) change gas pressure
- */
+int Battery::batteryCapacity(int newPowerCapacity, int NewBatteryTempareture)
+{
+    if(batteryTempareture > 80)
+    {
+        chargeMode = false;
+        powerCapacity = 0; // dissable batterry status
+    }
+    else
+    {
+        NewBatteryTempareture = batteryTempareture;
+        newPowerCapacity = powerCapacity;
+    }
+    return newPowerCapacity;
+}
+void Battery::rechargeStat(bool rechargeOn)
+{
+    if(rechargeOn == true && powerCapacity < 15 )
+    {
+        chargeMode = true;
+    }
+    else
+    {
+        chargeMode = false;
+    }
+}
+int Battery::batteryCircle(int NewBatteryCircle)
+{
+    if(chargeMode == true)
+    {
+       NewBatteryCircle++;
+    }
+    return NewBatteryCircle;
+}
+//-----------BatteryEnd
+
+//-----------ShockAbsorberStart
 struct ShockAbsorber
 {
-    // properties:
-    //2) offRoadMode
-    bool offRoadMode = false;//3) member variables with relevant data types
-    //2) coil spring tension
-    int coilTension = 15; //3) member variables with relevant data types
-    //2) lower control ratio(x:1)
-    int lowerControlRatio = 5;//3) member variables with relevant data types
-    //2) gas valve 
-    float gasValvePressure = 0.0f;//3) member variables with relevant data types
-    //2) Shock mount rail
-    int shockMountPosition = 5; //3) member variables with relevant data types
-    // things it can do:
-    //2) change coil tension
+    
+    bool offRoadMode = false;
+    int coilTension = 15; 
+    int lowerControlRatio = 5;
+    float gasValvePressure = 0.0f;
+    int shockMountPosition = 5; 
+
     int coilTensionStat(int newCoilTension);
-    //2) change lower control ratio
     int lowerControl(int  newLowerControlRatio);
-    //2) change gas pressure
     float gasPressure(float newGasPressure);
-
 };
-/*
-8) Smart Light Switch //1)write out, in plain-english, 5 traits and 3 things it can do.
-5 properties:
-    1) toggle switch
-    2) dimmer
-    3) pulse control
-    4) light color
-    5) usage time
-3 things it can do:
-    1) switch on 
-    2) change dimmer
-    3) alert light usage time
- */
-struct SmartLightSwitch
+int ShockAbsorber::coilTensionStat(int newCoilTension = 10)
 {
-    //properties:
-    //2) light toggle switch
-    bool lightToggle = false;//3) member variables with relevant data types
-    //2) dimmer
-    float dimmerValve = 0.5f;//3) member variables with relevant data types
-    //2) pulse control
-    int emegencyLightPulse = 0;//3) member variables with relevant data types
-    //2) light color
-    char lightColor = 'R';//3) member variables with relevant data types
-    //2) usage time
-    int lightUsage = 0;//3) member variables with relevant data types
+    if(newCoilTension != coilTension)
+    {
+        coilTension = newCoilTension + shockMountPosition;
+    }
+    return  coilTension;
+}
+int ShockAbsorber::lowerControl(int newLowerControlRatio = 5) //normal ratio
+{
+    if(newLowerControlRatio != lowerControlRatio)
+    {
+        lowerControlRatio = newLowerControlRatio + shockMountPosition;
+    }
+    return lowerControlRatio;
+}
+float ShockAbsorber::gasPressure(float newGasPressure)
+{
+    if(offRoadMode == true)
+    {
+        gasValvePressure = newGasPressure;
+    }
+    return gasValvePressure;
+}
+//-----------ShockAbsorberEnd
 
-    //things it can do:
-    //2) switch on 
+//-----------SmartLightSwitchStart
+struct SmartLightSwitch
+{ 
+    bool lightToggle = false;
+    float dimmerValve = 0.5f;
+    int emegencyLightPulse = 0;
+    char lightColor = 'W'; //white
+    int lightUsage = 0;
+
     void lightOn(bool lightSwitch);
-    //2) change dimmer
     void dimmer(float newDimmerValve);
-    //2) alert light usage time
     int usageTime(int newLightUsage);
 };
-/*
-9)  Anti Theft Device //1)write out, in plain-english, 5 traits and 3 things it can do.
-5 properties:
-    1) alarm
-    2) vibration sensor
-    3) door lock
-    4) keypad 
-    5) fingerprint sensor
-3 things it can do:
-    1) detect vibration 
-    2) auto lock
-    3) reset keypad 
- */
-struct AntiTheftDevice
+void SmartLightSwitch::lightOn(bool lightSwitch)
 {
-    //properties:
-    //2) alarm
+    if(lightSwitch == true)
+    {
+        lightToggle = lightSwitch;
+    }
+}
+void SmartLightSwitch::dimmer(float newDimmerValve)
+{
+    if(emegencyLightPulse > 1)
+    {
+        lightColor = 'R'; //red
+        dimmerValve = newDimmerValve;
+    }
+    else
+    {
+        lightColor = 'W';
+        dimmerValve -= 5.0f;
+    }
+}
+int SmartLightSwitch::usageTime(int newLightUsage = 0)
+{
+    if(lightToggle == true)
+    {
+        newLightUsage++;
+    }
+    return newLightUsage;
+}
+//-----------SmartLightSwitchEnd
+
+//----------AntiTheftDeviceStart
+struct AntiTheftDevice
+{    
     bool alarmStat = false;
-    //2) vibration sensor
     int vibration = 0;
-    //2) door lock
     bool doorLockStat = true;
-    //2) keypad 
     bool keypadPowerOn = false;
-    //2) fingerprint sensor
     bool fingerprintSensorOn = false;
-    //things it can do:
-    //2) detect vibration 
+
     int vibrationValue(int vibrationParameter);
-    //2) auto lock
-    bool autoDoorLock (bool doorLock);
-    //2) reset keypad 
+    bool autoDoorLock (bool doorLock); 
     bool keypadReset(bool reset);
 };
-/*
-10) Autonomous Car //1)write out, in plain-english, 5 traits and 3 things it can do.
-5 properties:
- These 5 properties should be UDTs that you defined above.
- this goes along with the instruction:
-    One of your 10 UDTs should only use UDTs for its member variable types.
-    1) Enging
-    2) Location
-    3) Operating system
-    4) Human interface
-    5) Sensor Array 
-3 things it can do:
-    1) CheckLocation 
-    2) open voice detection
-    3) DisplayStatus
- */
+int AntiTheftDevice::vibrationValue(int vibrationParameter = 0)
+{
+    if(vibration > vibrationParameter )
+    {
+        alarmStat = true;
+        doorLockStat = true;
+    }
+    else
+    {
+        alarmStat = false;
+    }
+    return vibrationParameter;
+}
+bool AntiTheftDevice::autoDoorLock(bool doorLock)
+{
+    if(doorLock == false && alarmStat == false)
+    {
+        fingerprintSensorOn = true;    
+    }
+    else
+    {
+        fingerprintSensorOn = false;
+        keypadPowerOn = false;   
+    }
+    return doorLock;
+}
+bool AntiTheftDevice::keypadReset(bool reset)
+{
+    if(fingerprintSensorOn == true)
+    {
+        keypadPowerOn = reset;
+    }
+    else
+    {
+        keypadPowerOn = false;
+    }
+    return keypadPowerOn;
+}
+//-----------AntiTheftDeviceEnd
+
+//-----------AutonomousCarStart
  struct AutonomousCar
- {
-    // One of your 10 UDTs should only use UDTs for its member variable types.   !No primitives allowed
-    //2) Enging
+ {  
     Engine  EngineStat;
-    //2) Location
     Location LocationStat;
-    //2) Operating system
     OperatingSystem OsStat;
-    //2) Human interface
     HumanInterface InterfaceStat;
-    //2) Sensor Array 
-    SensorArray SensorStat ;
+    SensorArray SensorStat;
 
-    // things it can do:
-    //2) CheckLocation
     Location reportLocation(Location newLocation);  
-    //2) open voice detection
-    OperatingSystem roportOS(OperatingSystem OsData); 
-    //2) DisplayStatus
+    OperatingSystem reportOS(OperatingSystem OsData); 
     SensorArray sensor(SensorArray sensorData);
-
 };
+Location AutonomousCar::reportLocation(Location newLocation)
+{
+    if(newLocation.cellularLocaton != 'N')
+    {
+        newLocation.accelerometor = LocationStat.accelerometor;
+    }
+    return  newLocation;  
+}
+OperatingSystem AutonomousCar::reportOS(OperatingSystem OsData)
+{
+    if(OsData.tetris == false)
+    {
+        OsData.ebookOpen = OsStat.tetris;
+    }
+    return OsData;
+}
+SensorArray AutonomousCar::sensor(SensorArray sensorData)
+{
+    if(sensorData.fontCamera == true)
+    {
+        sensorData.infaredNightDetection = EngineStat.powerSwitch;
+    }
+    return sensorData;
+}
+//-----------AutonomousCarEnd
+
 
 /*
  MAKE SURE YOU ARE NOT ON THE MASTER BRANCH
