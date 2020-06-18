@@ -161,7 +161,6 @@ int Location::gpsLocation(int latitude, int longtitude)
     {
         return latitude + longtitude;
     }
-    else
         return 0; 
 }
 float Location::accelerometerStat(float newAccelerometer)
@@ -270,7 +269,7 @@ struct HumanInterface
 };
 bool HumanInterface::heartRateBPM(int heartBpm) // i think boolean return valve is makesense
 {
-    if(alcoholPercentage > 40 )
+    if(alcoholPercentage > 40 && heartBpm > 100 ) //add heartBpm
     {
         return false;  //fixed
     }
