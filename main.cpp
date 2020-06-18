@@ -157,14 +157,12 @@ struct Location
 int Location::gpsLocation(int latitude, int longtitude)
 {
    
-    if (latitude !=0 && longtitude != 0)
+    if (latitude !=0 && longtitude != 0) //fixed 
     {
         return latitude + longtitude;
     }
     else
-    {
         return 0; 
-    }  
 }
 float Location::accelerometerStat(float newAccelerometer)
 {
@@ -264,22 +262,19 @@ struct HumanInterface
     float alphaFrequency = 0.0f;
     char faceCamera = 'c'; //c is close camera
 
-    int heartRateBPM(int heartBpm);
+    bool heartRateBPM(int heartBpm);
     char faceType(char readCameraData);
     char voiceType(char getType);
 
 
 };
-int HumanInterface::heartRateBPM(int heartBpm)
+bool HumanInterface::heartRateBPM(int heartBpm) // i think boolean return valve is makesense
 {
     if(alcoholPercentage > 40 )
     {
-        return heartBpm + alcoholPercentage;  
+        return false;  //fixed
     }
-    else
-    {
-        return  heartRate;
-    }
+        return  true;
 }
 char HumanInterface::faceType(char readCameraData)
 {  
@@ -348,12 +343,9 @@ bool SensorArray::nearFieldAlert(int nearField)
 {
     if(nearField == nearfeildDistance)
     {
-        return true; // alert on
+        return true; // fixed
     }
-    else
-    {
         return false;
-    }
 }
 //-----------SensorArrayEnd
 
