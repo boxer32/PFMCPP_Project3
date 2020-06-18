@@ -159,9 +159,9 @@ int Location::gpsLocation(int latitude, int longtitude)
    
     if (latitude !=0 && longtitude != 0) //fixed 
     {
-        return latitude + longtitude;
+        return latitude + longtitude; //car move
     }
-        return 0; 
+    return 0; // car stop
 }
 float Location::accelerometerStat(float newAccelerometer)
 {
@@ -273,7 +273,7 @@ bool HumanInterface::heartRateBPM(int heartBpm) // i think boolean return valve 
     {
         return false;  //fixed
     }
-        return  true;
+    return  true;
 }
 char HumanInterface::faceType(char readCameraData)
 {  
@@ -344,7 +344,7 @@ bool SensorArray::nearFieldAlert(int nearField)
     {
         return true; // fixed
     }
-        return false;
+    return false;
 }
 //-----------SensorArrayEnd
 
